@@ -27,16 +27,46 @@ Here, Qtt & Qt+1t+1 are present state & next state respectively. So, T flip-flop
 From the above characteristic table, we can directly write the next state equation as Q(t+1)=T′Q(t)+TQ(t)′ ⇒Q(t+1)=T⊕Q(t)
 
 **Procedure**
+```
+1. Type the program in Quartus software.
+ 2. Compile and run the program.
+ 3. Generate the RTL schematic and save the logic diagram.
+4. Create nodes for inputs and outputs to generate the timing diagram.
+ 5. For different input combinations generate the timing diagram.
+```
 
 /* write all the steps invloved */
 
 **PROGRAM**
+```
+module exp_9(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin 
+Q=(T&(~Q))|((~T)&Q);
+Qbar=~Q;
+end
+endmodule 
+```
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
+```
+Developed by: KIRTHICK SHA R
+RegisterNumber: 24900676
+```
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
+![gate](https://github.com/user-attachments/assets/29762f36-9f40-4579-bdc8-136d8cd70653)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![wave](https://github.com/user-attachments/assets/ed260d39-b8b9-4406-8397-ddabf8263b51)
+
 
 **RESULTS**
+To implement  T flipflop using verilog and validating their functionality using their functional tables are verified.
